@@ -141,9 +141,7 @@
               "projects/my-first-lib/tsconfig.lib.json",
               "projects/my-first-lib/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -168,9 +166,7 @@
               "projects/my-first-app/src/favicon.ico",
               "projects/my-first-app/src/assets"
             ],
-            "styles": [
-              "projects/my-first-app/src/styles.css"
-            ],
+            "styles": ["projects/my-first-app/src/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -232,9 +228,7 @@
               "projects/my-first-app/src/favicon.ico",
               "projects/my-first-app/src/assets"
             ],
-            "styles": [
-              "projects/my-first-app/src/styles.css"
-            ],
+            "styles": ["projects/my-first-app/src/styles.css"],
             "scripts": []
           }
         },
@@ -246,9 +240,7 @@
               "projects/my-first-app/tsconfig.spec.json",
               "projects/my-first-app/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
