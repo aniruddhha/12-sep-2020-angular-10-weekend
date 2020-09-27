@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3 class="text-muted">Topic is {{title.toUpperCase()}} </h3>
+      <h3 class="text-muted">Topic is {{titleInfo()}} </h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div>
+        <input [type]="typ" [value]="title">
+      </div>
+      <div>
+        <input type="text" [style.border]="'1px solid red'" [style.color]="'red'">
+      </div>
+      <div>
+        <input type="text" [class.onlyRed]="false">
+      </div>
+      <div>
+        <input type="text" [class.alert]="isIpAl" [class.alert-info]="isIpAl">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+
+    </div>
+  </div>
+</div>
