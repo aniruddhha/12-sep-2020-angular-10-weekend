@@ -24,7 +24,11 @@
   </div>
   <div class="row">
     <div class="col">
-
+      <input type="text" [style.font-weight]="fntWt">
+    </div>
+    <div class="col">
+      <input type="button" value="Increase" class="btn btn-info" (click)="clk(1)">
+      <input type="button" value="Decrease" class="btn btn-danger" (click)="clk(2)">
     </div>
   </div>
 </div>

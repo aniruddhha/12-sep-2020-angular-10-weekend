@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+//Homework - mouse, key, hover 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,6 +12,7 @@ export class AppComponent implements OnInit {
   brd = '1px solid red'
   typ = 'text'
   isIpAl = false
+  fntWt = 500
 
   ngOnInit() {
     setTimeout(() => { this.isIpAl = true }, 2500)
@@ -21,5 +24,13 @@ export class AppComponent implements OnInit {
 
   mathOp() {
     return Math.log10(100)
+  }
+
+  clk(btn: number) {
+    if (btn == 1) {
+      this.fntWt += 250
+    } else {
+      this.fntWt -= 250
+    }
   }
 }
