@@ -1,8 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h3 class="text-muted">Topic is {{title.toUpperCase()}} </h3>
+      <h3 class="text-muted">Topic is {{ title.toUpperCase()}} </h3>
       <h3 class="text-muted">Topic is {{titleInfo()}} </h3>
+      <h3 class="text-muted">Log of 100 {{mathOp()}} </h3>
     </div>
   </div>
   <div class="row">
@@ -16,7 +17,7 @@
       <div>
         <input type="text" [class.onlyRed]="false">
       </div>
-      <div>
+      <div [style.width.px]="800">
         <input type="text" [class.alert]="isIpAl" [class.alert-info]="isIpAl">
       </div>
     </div>

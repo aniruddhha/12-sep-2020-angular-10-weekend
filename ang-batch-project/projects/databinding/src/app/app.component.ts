@@ -18,4 +18,8 @@ export class AppComponent implements OnInit {
   titleInfo() {
     return `Ver ${this.title} 1`
   }
+
+  mathOp() {
+    return Math.log10(100)
+  }
 }
