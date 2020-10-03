@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectConceptComponent implements OnInit {
 
+  // Homework - give background color only after hitting enter key
   bkCl: string
+
   constructor() { }
 
   ngOnInit(): void {
