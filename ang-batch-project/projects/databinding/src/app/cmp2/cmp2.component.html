@@ -3,34 +3,41 @@
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum excepturi adipisci deserunt labore quos, velit
         debitis in laboriosam repellat numquam beatae dolores tempora provident ullam harum! Voluptate voluptatibus
         laboriosam voluptas?
+        {{demographic.checked}}
     </div>
 </div>
 <div class="row">
     <div class="col">
-        <input class="form-check-input" type="checkbox" value="" id="biodata" (change)="checkChange($event)" #biodata>
+        <input class="form-check-input" type="checkbox" value="" id="biodata" (change)="checkChange()" #biodata>
         <label class="form-check-label" for="biodata">
             Biodata
         </label>
     </div>
     <div class="col">
-        <input class="form-check-input" type="checkbox" value="" id="demographic" (change)="checkChange($event)"
-            #demographic>
+        <input class="form-check-input" type="checkbox" value="" id="demographic" (change)="checkChange()" #demographic>
         <label class="form-check-label" for="demographic">
             Demographic
         </label>
     </div>
     <div class="col">
-        <input class="form-check-input" type="checkbox" value="" id="educational" (change)="checkChange($event)"
-            #educational>
+        <input class="form-check-input" type="checkbox" value="" id="educational" (change)="checkChange()" #educational>
         <label class="form-check-label" for="educational">
             Educational
         </label>
     </div>
     <div class="col">
-        <input class="form-check-input" type="checkbox" value="" id="joborbusiness" (change)="checkChange($event)"
+        <input class="form-check-input" type="checkbox" value="" id="joborbusiness" (change)="checkChange()"
             #joborbusiness>
         <label class="form-check-label" for="joborbusiness">
             Job or Business
         </label>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        Biodata {{ biodata.checked }}
+        Demographic {{ demographic.checked }}
+        Educational {{ educational.checked }}
+        JobOrBusiness {{ joborbusiness.checked }}
     </div>
 </div>

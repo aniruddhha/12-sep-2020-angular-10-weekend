@@ -26,8 +26,7 @@ export class Cmp2Component implements OnInit {
   ngOnInit(): void {
   }
 
-  checkChange(ev: Event) {
-    console.log(ev)
+  checkChange() {
     this.calculateProgress()
   }
 
