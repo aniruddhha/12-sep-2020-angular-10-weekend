@@ -14,6 +14,8 @@ export class AppComponent implements OnInit {
   isIpAl = false
   fntWt = 500
 
+  clacProg: number = 0
+
   ngOnInit() {
     setTimeout(() => { this.isIpAl = true }, 2500)
   }
@@ -32,5 +34,10 @@ export class AppComponent implements OnInit {
     } else {
       this.fntWt -= 250
     }
+  }
+
+  onProgress(calPrg: number) {
+    console.log(`App Comp - Profile Progress Called`)
+    this.clacProg = calPrg
   }
 }

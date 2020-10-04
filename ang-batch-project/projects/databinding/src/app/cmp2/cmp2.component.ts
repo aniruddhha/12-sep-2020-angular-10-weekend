@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-cmp2',
@@ -6,6 +6,9 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
   styleUrls: ['./cmp2.component.css']
 })
 export class Cmp2Component implements OnInit {
+
+  @Output('profileprogress')
+  profileProgress: EventEmitter<number> = new EventEmitter()
 
   progress: number
 
@@ -38,6 +41,9 @@ export class Cmp2Component implements OnInit {
 
     // Homework - calculate to progress 
 
+    // { }
+
     this.progress = 50
+    this.profileProgress.emit(this.progress)
   }
 }

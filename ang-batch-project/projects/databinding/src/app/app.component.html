@@ -34,6 +34,6 @@
   <app-project-concept>
 
   </app-project-concept> -->
-  <app-cmp1></app-cmp1>
-  <app-cmp2></app-cmp2>
+  <app-cmp1 [progress]="clacProg"></app-cmp1>
+  <app-cmp2 (profileprogress)="onProgress($event)"></app-cmp2>
 </div>
