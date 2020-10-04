@@ -34,6 +34,12 @@
   <app-project-concept>
 
   </app-project-concept> -->
-  <app-cmp1 [progress]="clacProg"></app-cmp1>
+  <app-cmp1 [progress]="clacProg">
+    <p #para class="alert alert-info">Quickly get a project started with any of our examples ranging from using parts of
+      the
+      framework to custom
+      components and layouts.
+    </p>
+  </app-cmp1>
   <app-cmp2 (profileprogress)="onProgress($event)"></app-cmp2>
 </div>

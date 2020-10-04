@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 
 //Homework - mouse, key, hover 
 
@@ -14,9 +14,13 @@ export class AppComponent implements OnInit {
   isIpAl = false
   fntWt = 500
 
+  @ViewChild('para', { static: true })
+  para: ElementRef<HTMLElement>
+
   clacProg: number = 0
 
   ngOnInit() {
+    console.log(this.para)
     setTimeout(() => { this.isIpAl = true }, 2500)
   }
 
