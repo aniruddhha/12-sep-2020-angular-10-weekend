@@ -10,6 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
 export class DataTabComponent implements OnInit {
 
   quotations: Array<TabData> = new Array()
+  isTotalChecked = false
 
   constructor() { }
 
@@ -33,5 +34,9 @@ export class DataTabComponent implements OnInit {
 
     const upQts = this.quotations.filter(el => el.id != id)
     this.quotations = upQts
+  }
+
+  onChangeTotal(ev: Event) {
+    this.isTotalChecked = ev.target['checked']
   }
 }

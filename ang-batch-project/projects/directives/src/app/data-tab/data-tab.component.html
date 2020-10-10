@@ -18,6 +18,11 @@
 </div>
 <div class="row mt-3">
     <div class="col">
+        <label>Total</label><input type="checkbox" class="ml-2" (change)="onChangeTotal($event)">
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col">
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -27,7 +32,7 @@
                     <th scope="col">Qty</th>
                     <th scope="col">Unit Price</th>
                     <th scope="col">Tax</th>
-                    <th scope="col">Total</th>
+                    <th scope="col" *ngIf="isTotalChecked">Total</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,7 +44,7 @@
                     <td>{{qt.qty}}</td>
                     <td>{{qt.unitPrice}}</td>
                     <td>{{qt.tax}}</td>
-                    <td>{{(qt.unitPrice * qt.qty) + qt.tax}}</td>
+                    <td *ngIf="isTotalChecked">{{(qt.unitPrice * qt.qty) + qt.tax}}</td>
                 </tr>
             </tbody>
         </table>
