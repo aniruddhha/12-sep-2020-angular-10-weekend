@@ -36,16 +36,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let qt of quotations; let ind = index;" clFmt>
-                    <th scope="row">{{ind+1}}</th>
-                    <th scope="row"><input type="button" class="btn btn-sm btn-warning" value="Delete"
-                            (click)="removeData(qt.id)"></th>
-                    <td>{{qt.item}}</td>
-                    <td>{{qt.qty}}</td>
-                    <td>{{qt.unitPrice}}</td>
-                    <td>{{qt.tax}}</td>
-                    <td *ngIf="isTotalChecked">{{(qt.unitPrice * qt.qty) + qt.tax}}</td>
-                </tr>
+                <ng-template [ngIf]="isTotalChecked">
+                    <tr *ngFor="let qt of quotations; let ind = index;" clFmt>
+                        <th scope="row">{{ind+1}}</th>
+                        <th scope="row">
+                            <input type="button" class="btn btn-sm btn-warning" value="Delete"
+                                (click)="removeData(qt.id)">
+                        </th>
+                        <td>{{qt.item}}</td>
+                        <td>{{qt.qty}}</td>
+                        <td>{{qt.unitPrice}}</td>
+                        <td>{{qt.tax}}</td>
+                        <td *ngIf="isTotalChecked">{{(qt.unitPrice * qt.qty) + qt.tax}}</td>
+                    </tr>
+                </ng-template>
             </tbody>
         </table>
     </div>
