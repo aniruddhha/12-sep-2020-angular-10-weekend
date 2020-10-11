@@ -1,12 +1,13 @@
-import { Directive, ElementRef, HostBinding, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostBinding, HostListener, Input, Host } from '@angular/core';
 
 @Directive({
   selector: '[clFmt]'
 })
 export class TabCellDirective {
 
+  @Input()
   @HostBinding('style.background')
-  bkCl: string
+  clFmt: string
 
   @HostBinding('class.text-success')
   txMt: boolean
@@ -18,14 +19,14 @@ export class TabCellDirective {
 
   @HostListener('mouseenter')
   msEnt() {
-    this.bkCl = '#e8e8e8'
+    this.clFmt = '#e8e8e8'
     this.txMt = true
     this.at = 'hi'
   }
 
   @HostListener('mouseleave')
   msLv() {
-    this.bkCl = 'white'
+    this.clFmt = 'white'
     this.txMt = false
   }
 

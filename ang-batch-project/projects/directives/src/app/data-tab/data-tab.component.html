@@ -37,7 +37,7 @@
             </thead>
             <tbody>
                 <ng-template [ngIf]="isTotalChecked">
-                    <tr *ngFor="let qt of quotations; let ind = index;" clFmt>
+                    <tr *ngFor="let qt of quotations; let ind = index;" [clFmt]="'red'">
                         <th scope="row">{{ind+1}}</th>
                         <th scope="row">
                             <input type="button" class="btn btn-sm btn-warning" value="Delete"
@@ -63,3 +63,13 @@
         quaerat, saepe quam mollitia officia. Animi, itaque.</p>
 </div>
 <!-- </ng-template> -->
+
+<div class="row">
+    <div class="col">
+        <p [ngClass]="{'alert alert-info': true}">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet mollitia minus illum est delectus assumenda
+            debitis eveniet asperiores, magnam odio voluptatem adipisci iure numquam corporis ducimus dolorem excepturi
+            soluta nulla.
+        </p>
+    </div>
+</div>
