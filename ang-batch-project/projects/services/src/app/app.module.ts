@@ -1,3 +1,4 @@
+import { AllService } from './all.service';
 import { DemoService } from './demo.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -16,6 +17,7 @@ import { Cmp2Component } from './cmp2/cmp2.component';
     BrowserModule
   ],
   providers: [
+    AllService
     //  /   DemoService // Module level
   ],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
-import { EventEmitter } from '@angular/core'
-import { emit } from 'cluster'
+import { EventEmitter, Injectable } from '@angular/core'
 
+@Injectable()
 export class DemoService {
 
   private colorEmitter: EventEmitter<string> = new EventEmitter()

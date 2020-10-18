@@ -16,6 +16,11 @@ export class Cmp1Component implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+  }
+
+  ngAfterViewChecked() {
+    this.dmSr.changeTextColor(1)
   }
 
   incClk() {
