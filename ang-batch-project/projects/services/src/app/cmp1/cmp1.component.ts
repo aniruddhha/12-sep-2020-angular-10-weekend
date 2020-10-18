@@ -23,4 +23,7 @@ export class Cmp1Component implements OnInit {
     this.cnt = this.dmSr.srCntValue()
   }
 
+  colorClicked(btn: number) {
+    this.dmSr.changeTextColor(btn)
+  }
 }

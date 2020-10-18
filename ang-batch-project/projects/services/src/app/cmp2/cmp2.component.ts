@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Cmp2Component implements OnInit {
 
+  textColor: string
   cnt = 0
 
   constructor(
@@ -16,11 +17,15 @@ export class Cmp2Component implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.dmSr.receiveColor(tssCol => {
+      console.log(tssCol)
+      this.textColor = tssCol
+    })
   }
+
 
   decClk() {
     this.dmSr.dec()
     this.cnt = this.dmSr.srCntValue()
   }
-
 }
