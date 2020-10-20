@@ -6,10 +6,10 @@
     </div>
     <div class="row">
         <div class="col">
-            <input type="email">
+            <input type="text" #mob>
         </div>
         <div class="col">
-            <input type="button" value="Okay" class="btn btn-info" (click)="onOkay()">
+            <input type="button" value="Okay" class="btn btn-info" (click)="onOkay(mob.value)">
         </div>
     </div>
     <div class="row">

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-chats',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatsComponent implements OnInit {
 
-  constructor() { }
+  num: string
+  constructor(
+    private actRt: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.actRt.params.subscribe(
+      prms => this.num = prms['chatWith']
+    )
   }
-
 }

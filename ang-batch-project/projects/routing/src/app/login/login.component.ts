@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onOkay() {
-    this.router.navigate(['chats'])
+  onOkay(mob: string) {
+    this.router.navigate(['chats', mob]) // route params
   }
 }
