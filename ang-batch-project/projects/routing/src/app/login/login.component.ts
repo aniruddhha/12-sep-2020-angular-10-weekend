@@ -18,4 +18,13 @@ export class LoginComponent implements OnInit {
   onOkay(mob: string) {
     this.router.navigate(['chats', mob]) // route params
   }
+
+  onFp() {
+    this.router.navigate(['register'], {
+      queryParams: {
+        ttl: 45,
+        isSession: false
+      }
+    })
+  }
 }
