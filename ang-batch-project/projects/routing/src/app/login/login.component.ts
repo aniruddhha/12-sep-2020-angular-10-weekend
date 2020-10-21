@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['chats', mob]) // route params
   }
 
-  onFp() {
+  onFdgdxfxhp() {
     this.router.navigate(['register'], {
       queryParams: {
         ttl: 45,
