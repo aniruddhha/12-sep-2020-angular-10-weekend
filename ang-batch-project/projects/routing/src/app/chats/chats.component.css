@@ -1,0 +1,62 @@
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  background-color: #faebd7;
+  height: 100vh;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.one {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  flex: 1 1 auto;
+  background-color: red;
+  color: white;
+}
+
+.one > div {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+}
+
+.two {
+  margin-top: 0.3em;
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  background-color: green;
+  color: white;
+  justify-content: stretch;
+}
+
+.two > div {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: row-reverse;
+  border: 1px solid white;
+  justify-content: center;
+  align-items: center;
+}
+
+.three {
+  margin-top: 0.3em;
+  display: flex;
+  flex: 10 1 auto;
+  flex-wrap: wrap;
+  background-color: blue;
+  color: white;
+  justify-content: stretch;
+}
+
+.three > div {
+  display: flex;
+  flex: 1 0 auto;
+  border: 1px solid white;
+  align-items: flex-end;
+}
