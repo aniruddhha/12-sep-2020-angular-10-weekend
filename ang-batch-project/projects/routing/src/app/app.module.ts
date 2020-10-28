@@ -1,3 +1,5 @@
+import { VideosComponent } from './chats/videos.component';
+import { ImagesComponent } from './chats/images.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -14,7 +16,10 @@ import { ErrorComponent } from './error/error.component';
     LoginComponent,
     RegisterComponent,
     ChatsComponent,
-    ErrorComponent
+    ErrorComponent,
+
+    ImagesComponent,
+    VideosComponent
   ],
   imports: [
     BrowserModule,

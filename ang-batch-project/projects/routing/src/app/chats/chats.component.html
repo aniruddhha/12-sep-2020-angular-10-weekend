@@ -1,60 +1,16 @@
 <div class="chat-window">
     <div class="one">
-        <div>ONE</div>
-        <div>ONE</div>
-        <div>ONE</div>
-        <div>ONE</div>
+        <h1> Welcome Chat Dashboard <u>{{num}}</u></h1>
     </div>
     <div class="two">
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-        <div>TWO</div>
-    </div>
-    <div class="three">
-        <div>THREE</div>
-        <div>THREE</div>
-        <div>THREE</div>
-        <div>THREE</div>
-        <div>THREE</div>
-        <div>THREE</div>
-        <div>THREE</div>
-        <div>THREE</div>
-        <div>THREE</div>
-        <div>THREE</div>
-        <div>THREE</div>
-        <div>THREE</div>
-        <div>THREE</div>
-        <div>THREE</div>
-        <div>THREE</div>
-        <div>THREE</div>
-        <div>THREE</div>
-        <div>THREE</div>
-        <div>THREE</div>
-        <div>THREE</div>
+        <div class="header">
+            <a [routerLink]="['images']">Images</a>
+            <a [routerLink]="['videos']">Videos</a>
+        </div>
+
+        <div class="outlet">
+            <router-outlet></router-outlet>
+        </div>
+
     </div>
 </div>
