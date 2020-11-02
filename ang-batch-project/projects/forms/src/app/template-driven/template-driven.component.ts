@@ -8,6 +8,8 @@ import { NgForm } from '@angular/forms';
 })
 export class TemplateDrivenComponent implements OnInit {
 
+  re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -15,5 +17,6 @@ export class TemplateDrivenComponent implements OnInit {
 
   frmSub(frm: NgForm) {
     console.log(frm)
+    console.log(frm.value.city)
   }
 }
