@@ -1,47 +1,47 @@
-<form class="container-fluid">
-    <div class="form-row mt-3">
+<form class="container-fluid" [formGroup]="fg" (ngSubmit)="onQuotation()">
+    <div class="form-row mt-3 border p-3" formGroupName="userInfo">
         <div class="col">
             <label for="yourName">Your Name</label>
-            <input type="text" placeholder="Your name" class="form-control" id="yourName">
+            <input type="text" placeholder="Your name" class="form-control" id="yourName" formControlName="yourName">
         </div>
         <div class="col">
             <label for="company">Company</label>
-            <input type="text" placeholder="Company" class="form-control" id="company">
+            <input type="text" placeholder="Company" class="form-control" id="company" formControlName="company">
         </div>
         <div class="col">
             <label for="mobile">Mobile</label>
-            <input type="text" placeholder="Mobile" class="form-control" id="mobile">
+            <input type="text" placeholder="Mobile" class="form-control" id="mobile" formControlName="mobile">
         </div>
         <div class="col">
-            <label for="mobile">Email</label>
-            <input type="text" placeholder="Email" class="form-control" id="email">
+            <label for="email">Email</label>
+            <input type="text" placeholder="Email" class="form-control" id="email" formControlName="email">
         </div>
     </div>
-    <div class="form-row mt-3">
+    <div class="form-row mt-3 border p-3" formGroupName="productInfo">
         <div class="col">
             <label for="products">Products</label>
-            <select class="form-control">
-                <option value="">Laptop</option>
-                <option value="">Phone</option>
-                <option value="">Mouse</option>
-                <option value="">Keyboard</option>
-                <option value="">SMPS</option>
-                <option value="">Cabinet</option>
-                <option value="">Bag</option>
+            <select class="form-control" formControlName="product">
+                <option value="laptop">Laptop</option>
+                <option value="phone">Phone</option>
+                <option value="mouse">Mouse</option>
+                <option value="keyboard">Keyboard</option>
+                <option value="smps">SMPS</option>
+                <option value="cabinet">Cabinet</option>
+                <option value="bag">Bag</option>
             </select>
         </div>
         <div class="col">
             <label for="qty">Quantity</label>
-            <input type="text" placeholder="Qty" class="form-control" id="qty">
+            <input type="text" placeholder="Qty" class="form-control" id="qty" formControlName="qty">
         </div>
         <div class="col">
             <label for="price">Price</label>
-            <input type="text" placeholder="Price" class="form-control" id="price">
+            <input type="text" placeholder="Price" class="form-control" id="price" formControlName="price">
         </div>
 
         <div class="col">
             <label for="tax">Tax</label>
-            <input type="text" placeholder="Tax" class="form-control" id="tax">
+            <input type="text" placeholder="Tax" class="form-control" id="tax" formControlName="tax">
         </div>
         <div class="col">
             <label for="">&nbsp;</label>
@@ -63,5 +63,8 @@
                 </tr>
             </thead>
         </table>
+    </div>
+    <div class="form-row mt-3">
+        <input type="submit" value="Submit">
     </div>
 </form>
