@@ -28,7 +28,14 @@ export class DataDrivenComponent implements OnInit {
         price: this.fb.control(''),
         tax: this.fb.control('')
       }),
-      products: this.fb.array([])
+      products: this.fb.array([
+        this.fb.group({
+          product: this.fb.control('sdfsg'),
+          qty: this.fb.control(12),
+          price: this.fb.control(200),
+          tax: this.fb.control(12)
+        })
+      ])
     })
   }
 
