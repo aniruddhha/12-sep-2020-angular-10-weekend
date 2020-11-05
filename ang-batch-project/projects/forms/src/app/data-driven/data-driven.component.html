@@ -1,4 +1,4 @@
-<form class="container-fluid" [formGroup]="fg" (ngSubmit)="onQuotation()">
+<form class="container" [formGroup]="fg" (ngSubmit)="onQuotation()">
     <div class="form-row mt-3 border p-3" formGroupName="userInfo">
         <div class="col">
             <label for="yourName">Your Name</label>
@@ -32,21 +32,21 @@
         </div>
         <div class="col">
             <label for="qty">Quantity</label>
-            <input type="text" placeholder="Qty" class="form-control" id="qty" formControlName="qty">
+            <input type="number" placeholder="Qty" class="form-control" id="qty" formControlName="qty">
         </div>
         <div class="col">
             <label for="price">Price</label>
-            <input type="text" placeholder="Price" class="form-control" id="price" formControlName="price">
+            <input type="number" placeholder="Price" class="form-control" id="price" formControlName="price">
         </div>
 
         <div class="col">
             <label for="tax">Tax</label>
-            <input type="text" placeholder="Tax" class="form-control" id="tax" formControlName="tax">
+            <input type="number" placeholder="Tax" class="form-control" id="tax" formControlName="tax">
         </div>
         <div class="col">
             <label for="">&nbsp;</label>
             <div>
-                <input type="button" value="Add" class="btn btn-primary">
+                <input type="button" value="Add" class="btn btn-primary" (click)="addProduct()">
             </div>
         </div>
     </div>
@@ -55,6 +55,7 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
+                    <th scole="col">Action</th>
                     <th scope="col">Product</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Price</th>
@@ -65,13 +66,27 @@
             <tbody>
                 <tr formArrayName="products" *ngFor="let prd of fg.get('products').value; let i = index;">
                     <td>{{i+1}}</td>
+                    <td> <input type="checkbox"> </td>
                     <td>{{prd.product}}</td>
                     <td>{{prd.qty}}</td>
                     <td>{{prd.price}}</td>
                     <td>{{prd.tax}}</td>
+                    <td>{{(prd.qty * prd.price) + prd.tax }}</td>
+                </tr>
+                <tr *ngIf="fg.get('products').length">
+                    <td></td>
+                    <td> </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Total</td>
+                    <td>{{ calculateTotal() }}</td>
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="form-row">
+        <input type="button" value="Delete Product" class="btn btn-info">
     </div>
     <div class="form-row mt-3">
         <input type="submit" value="Submit" class="btn btn-primary">

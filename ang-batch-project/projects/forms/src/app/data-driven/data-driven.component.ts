@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-data-driven',
@@ -17,26 +17,42 @@ export class DataDrivenComponent implements OnInit {
   ngOnInit(): void {
     this.fg = this.fb.group({
       userInfo: this.fb.group({
-        yourName: this.fb.control(''),
-        company: this.fb.control(''),
-        mobile: this.fb.control(''),
-        email: this.fb.control('')
+        yourName: this.fb.control('', [Validators.required]),
+        company: this.fb.control('', [Validators.required]),
+        mobile: this.fb.control('', [Validators.required]),
+        email: this.fb.control('', Validators.compose([
+          Validators.required,
+          Validators.email
+        ]))
       }),
       productInfo: this.fb.group({
         product: this.fb.control(''),
-        qty: this.fb.control(''),
-        price: this.fb.control(''),
-        tax: this.fb.control('')
+        qty: this.fb.control('', [Validators.max(1)]),
+        price: this.fb.control('', [Validators.max(1)]),
+        tax: this.fb.control('', [Validators.max(0)])
       }),
-      products: this.fb.array([
-        this.fb.group({
-          product: this.fb.control('sdfsg'),
-          qty: this.fb.control(12),
-          price: this.fb.control(200),
-          tax: this.fb.control(12)
-        })
-      ])
+      products: this.fb.array([])
     })
+  }
+
+  addProduct() {
+    const productInfo = this.fg.get('productInfo') as FormGroup
+    const products = this.fg.get('products') as FormArray
+    products.push(this.fb.group({ ...productInfo.value }))
+
+    productInfo.reset()
+  }
+
+  removeProduct() {
+    // removing perticular product - HW
+  }
+
+  calculateTotal() {
+    const frmArr = this.fg.get('products') as FormArray
+    const products = frmArr.value as Array<any>
+    let total = 0
+    products.forEach(el => total += (el['qty'] * el['price']) + el['tax'])
+    return total
   }
 
   onQuotation() {
