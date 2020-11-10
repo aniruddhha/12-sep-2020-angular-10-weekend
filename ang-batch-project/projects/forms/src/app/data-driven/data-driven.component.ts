@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, Validators, ValidationErrors, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-data-driven',
@@ -19,7 +19,9 @@ export class DataDrivenComponent implements OnInit {
       userInfo: this.fb.group({
         yourName: this.fb.control('', [Validators.required]),
         company: this.fb.control('', [Validators.required]),
-        mobile: this.fb.control('', [Validators.required]),
+        mobile: this.fb.control('', Validators.compose([
+          Validators.required, this.mobileCheck
+        ])),
         email: this.fb.control('', Validators.compose([
           Validators.required,
           Validators.email
@@ -56,6 +58,27 @@ export class DataDrivenComponent implements OnInit {
   }
 
   onQuotation() {
-    console.log(this.fg.value)
+    if (this.fg.valid) {
+      const products = this.fg.get('products') as FormArray
+      if (products.length) {
+        console.log(`Complete form is valid`)
+      }
+    }
+  }
+
+  mobileCheck(ctrl: AbstractControl): ValidationErrors | null {
+    const is91 = ctrl.value.substr(0, 3) == '+91'
+
+    return is91 ? null : { is91: true }
+  }
+
+  checkValidity(group: string, name: string) {
+    const ctrl = this.fg.get(group).get(name)
+    return ctrl.invalid && ctrl.touched
+  }
+
+  checkFormValidity() {
+    const products = this.fg.get('products') as FormArray
+    return this.fg.valid && products.length
   }
 }

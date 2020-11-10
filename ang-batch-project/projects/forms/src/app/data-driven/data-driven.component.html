@@ -1,20 +1,25 @@
-<form class="container" [formGroup]="fg" (ngSubmit)="onQuotation()">
+<form class="container border mt-3 p-3" [formGroup]="fg" (ngSubmit)="onQuotation()"
+    [ngClass]="{ 'border-danger' : !checkFormValidity(), 'border-success' : checkFormValidity()  }">
     <div class="form-row mt-3 border p-3" formGroupName="userInfo">
         <div class="col">
             <label for="yourName">Your Name</label>
-            <input type="text" placeholder="Your name" class="form-control" id="yourName" formControlName="yourName">
+            <input [ngClass]="{ border : true, 'border-danger': checkValidity('userInfo', 'yourName') }" type="text"
+                placeholder="Your name" class="form-control" id="yourName" formControlName="yourName">
         </div>
         <div class="col">
             <label for="company">Company</label>
-            <input type="text" placeholder="Company" class="form-control" id="company" formControlName="company">
+            <input [ngClass]="{ border : true, 'border-danger': checkValidity('userInfo', 'company') }" type="text"
+                placeholder="Company" class="form-control" id="company" formControlName="company">
         </div>
         <div class="col">
             <label for="mobile">Mobile</label>
-            <input type="text" placeholder="Mobile" class="form-control" id="mobile" formControlName="mobile">
+            <input [ngClass]="{ border : true, 'border-danger': checkValidity('userInfo', 'mobile') }" type="text"
+                placeholder="Mobile" class="form-control" id="mobile" formControlName="mobile">
         </div>
         <div class="col">
             <label for="email">Email</label>
-            <input type="text" placeholder="Email" class="form-control" id="email" formControlName="email">
+            <input [ngClass]="{ border : true, 'border-danger': checkValidity('userInfo', 'email') }" type="text"
+                placeholder="Email" class="form-control" id="email" formControlName="email">
         </div>
     </div>
     <div class="form-row mt-3 border p-3" formGroupName="productInfo">
@@ -73,7 +78,7 @@
                     <td>{{prd.tax}}</td>
                     <td>{{(prd.qty * prd.price) + prd.tax }}</td>
                 </tr>
-                <tr *ngIf="fg.get('products').length">
+                <tr *ngIf="fg.get('products').value.length">
                     <td></td>
                     <td> </td>
                     <td></td>
