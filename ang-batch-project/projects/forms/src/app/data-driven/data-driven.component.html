@@ -97,3 +97,14 @@
         <input type="submit" value="Submit" class="btn btn-primary">
     </div>
 </form>
+<div class="container">
+    <div class="row">
+        <div class="card" style="width: 18rem;" *ngFor="let user of invoices;">
+            <img [src]="user.avatar" class="card-img-top" alt="ani">
+            <div class="card-body">
+                <p class="card-text"> {{user.first_name}} {{user.last_name}} </p>
+                <p class="card-text"> {{user.email}}</p>
+            </div>
+        </div>
+    </div>
+</div>

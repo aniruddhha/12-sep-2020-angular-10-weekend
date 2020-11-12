@@ -1,17 +1,22 @@
+import { Invoice, User } from './inv.data';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators, ValidationErrors, AbstractControl } from '@angular/forms';
+import { MyHttpService } from './http.service';
 
 @Component({
   selector: 'app-data-driven',
   templateUrl: './data-driven.component.html',
-  styleUrls: ['./data-driven.component.css']
+  styleUrls: ['./data-driven.component.css'],
+  providers: [MyHttpService]
 })
 export class DataDrivenComponent implements OnInit {
 
   fg: FormGroup
+  invoices: Array<User>
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private invSr: MyHttpService
   ) { }
 
   ngOnInit(): void {
@@ -34,6 +39,11 @@ export class DataDrivenComponent implements OnInit {
         tax: this.fb.control('', [Validators.max(0)])
       }),
       products: this.fb.array([])
+    })
+
+    this.invSr.listInvoices().subscribe(res => {
+      console.log(res['data'])
+      this.invoices = res['data'] as Array<User>
     })
   }
 
@@ -58,18 +68,34 @@ export class DataDrivenComponent implements OnInit {
   }
 
   onQuotation() {
+    const form = this.fg
     if (this.fg.valid) {
       const products = this.fg.get('products') as FormArray
       if (products.length) {
         console.log(`Complete form is valid`)
+
+        const invoice: Invoice = this.fg.value as Invoice
+        delete invoice['productInfo']
+
+        this.invSr.saveInvoice(invoice).subscribe(
+          res => {
+            console.log(res)
+            form.reset()
+            const products = (this.fg.get('products') as FormArray)
+            products.clear()
+          },
+          err => console.log(err),
+          () => console.log('complete')
+        )
       }
     }
   }
 
   mobileCheck(ctrl: AbstractControl): ValidationErrors | null {
-    const is91 = ctrl.value.substr(0, 3) == '+91'
-
-    return is91 ? null : { is91: true }
+    if (ctrl.value) {
+      const is91 = ctrl.value.substr(0, 3) == '+91'
+      return is91 ? null : { is91: true }
+    }
   }
 
   checkValidity(group: string, name: string) {
