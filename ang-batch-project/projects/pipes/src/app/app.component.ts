@@ -15,4 +15,14 @@ export class AppComponent {
 
   em = '********kar@gmail.com'
   mb = '******625'
+
+  mobiles = [
+    { name: 'Android', price: 12000 },
+    { name: 'iOS', price: 78000 },
+    { name: 'BB', price: 35000 },
+    { name: 'Win', price: 40000 },
+    { name: 'Symbian', price: 40000 },
+    { name: 'Palm Os', price: 40000 },
+    { name: 'MuditaOs', price: 15000 }
+  ]
 }
