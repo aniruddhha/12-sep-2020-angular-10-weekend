@@ -7,9 +7,7 @@ export class MyHttpService {
 
     constructor(
         private http: HttpClient
-    ) {
-
-    }
+    ) { }
 
     saveInvoice(inv: Invoice) {
         console.log('in Service')
