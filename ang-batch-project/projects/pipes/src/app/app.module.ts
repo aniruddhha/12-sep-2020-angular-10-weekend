@@ -2,10 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { FirstUpperPipe } from './first-upper.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FirstUpperPipe
   ],
   imports: [
     BrowserModule
