@@ -8,6 +8,7 @@ import { WebNavComponent } from './web-nav/web-nav.component';
 import { WebInfoComponent } from './web-info/web-info.component';
 import { WebCardContainerComponent } from './web-card-container/web-card-container.component';
 import { WebCardComponent } from './web-card-container/web-card.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { WebCardComponent } from './web-card-container/web-card.component';
     WebCardComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
